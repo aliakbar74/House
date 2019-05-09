@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using House.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,9 @@ namespace House.Data
             : base(options)
         {
         }
+
+        public DbSet<ProductTypes> ProductTypeses { get; set; }
+        public DbSet<SpecialTags> SpecialTagses { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
