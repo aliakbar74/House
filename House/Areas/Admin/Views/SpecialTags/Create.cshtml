@@ -1,0 +1,28 @@
+﻿@model SpecialTags
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<form method="post">
+    <div class="p-4 border rounded">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Name" class="form-control"/>
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-success"/>
+            <a class="btn btn-link btn-sm" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,0 +1,25 @@
+@model SpecialTags
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "_Layout";
+}
+<h1> Details </h1>
+<form>
+    <div class="border rounded p-4">
+        <div class="form-group row">
+            <div class="col-1">
+                
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Name" class="form-control" disabled/>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary w-25">Edit</a>
+            <a asp-action="Index" class="btn btn-link">Back to list</a>
+        </div>
+    </div>
+</form>

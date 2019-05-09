@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SpecialTags>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Special Tags</h1>
+    </div>
+    <div class="col-5 text-right">
+        <a asp-action="Create" class="btn btn-info">Create new special tag</a>
+    </div>
+
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(tags => tags.Name)
+            </th>
+        </tr>
+        @foreach (var st in @Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayName(st.Name)
+                </td>
+                <td>
+                    @await Html.PartialAsync("_SpecialTagsButtonPartial", st.Id)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

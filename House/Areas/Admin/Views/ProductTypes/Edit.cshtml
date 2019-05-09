@@ -1,0 +1,29 @@
+﻿@model House.Models.ProductTypes
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post" asp-action="Edit">
+    <div class="p-4 border rounded">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Name" class="form-control"/>
+            </div>
+        </div>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <br/>
+        <div class="form-group">
+            <input type="submit" value="Update" asp-route-id="@Model.Id" class="btn btn-primary w-25"/>
+            <a asp-action="Index" class="btn btn-link btn-sm">Back to List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

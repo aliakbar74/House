@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProductTypes>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-sm-6">
+        <h2 class="text-info">Product Type</h2>
+    </div>
+    <div class="col-sm-6 text-right">
+        <a asp-action="Create" class="btn btn-info">&nbsp; New product type</a>
+    </div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.Name)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayName(p.Name)
+                </td>
+                <td>
+
+                    @* <partial name="_ProductButtonsPartial" model="p.Id"/> *@
+                    @await Html.PartialAsync("_ProductButtonsPartial", p.Id)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
