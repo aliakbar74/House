@@ -16,6 +16,6 @@ namespace House.Data
 
         public DbSet<ProductTypes> ProductTypeses { get; set; }
         public DbSet<SpecialTags> SpecialTagses { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Products> Products { get; set; }
     }
 }

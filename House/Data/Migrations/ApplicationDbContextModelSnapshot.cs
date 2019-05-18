@@ -19,7 +19,21 @@ namespace House.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("House.Models.Product", b =>
+            modelBuilder.Entity("House.Models.ProductTypes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductTypeses");
+                });
+
+            modelBuilder.Entity("House.Models.Products", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,20 +60,6 @@ namespace House.Data.Migrations
                     b.HasIndex("SpecialTagsId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("House.Models.ProductTypes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductTypeses");
                 });
 
             modelBuilder.Entity("House.Models.SpecialTags", b =>
@@ -241,7 +241,7 @@ namespace House.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("House.Models.Product", b =>
+            modelBuilder.Entity("House.Models.Products", b =>
                 {
                     b.HasOne("House.Models.ProductTypes", "ProductTypes")
                         .WithMany()

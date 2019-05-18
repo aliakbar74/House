@@ -26,7 +26,7 @@ namespace House.Areas.Admin.Controllers {
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SpecialTags tag) {
             if (ModelState.IsValid) {
-                _db.Add(tag);
+                _db.SpecialTagses.Add(tag);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

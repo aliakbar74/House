@@ -36,7 +36,7 @@ namespace House.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Add(product);
+                _db.ProductTypeses.Add(product);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
