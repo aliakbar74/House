@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,10 +11,14 @@ namespace House.Models {
         public double Price { get; set; }
         public bool Available { get; set; }
 
-        [Display(Name = "Product type")] public int ProductTypesId { get; set; }
-        [ForeignKey("ProductTypesId")] public virtual ProductTypes ProductTypes { get; set; }
+        public int ProductTypesId { get; set; }        
+        [ForeignKey("ProductTypesId")]
+        [Display(Name="Product Id Test")]
+        public virtual ProductTypes ProductTypes { get; set; }
 
-        [Display(Name = "special tag")] public int SpecialTagsId { get; set; }
-        [ForeignKey("SpecialTagsId")] public virtual SpecialTags SpecialTags { get; set; }
+        public int SpecialTagsId { get; set; }
+        [ForeignKey("SpecialTagsId")] 
+        [Display(Name = "special tag")] 
+        public virtual SpecialTags SpecialTags { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace House.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Test")]
         public string Name { get; set; }
+
     }
 }

@@ -1,4 +1,27 @@
-﻿@{
+﻿@model System.Collections.Generic.IEnumerable<Products>
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<div class="row">
+    @foreach (var product in Model) {
+        <div class="col-4">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <div class="my-0 font-weight-light">
+                        <label style="font-size: 23px; color: steelblue ">@product.Name</label>
+                    </div>
+                    <img class="card-img" style="height: 200px;"  src="@product.Image" alt="Card Image"/>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <label style="font-size: 20px; color: #a51313; ">$@product.Price</label>
+                            </div>
+                        <a asp-action="Details" asp-controller="Home" asp-route-id="@product.Id" class="btn btn-outline-info">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
